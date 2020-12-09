@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration>Release</Configuration>
+        <Configurations>Release</Configurations>
+        <Platform>AnyCPU</Platform>
+        <Platforms>AnyCPU</Platforms>
+
+        <NeutralLanguage>en</NeutralLanguage>
+        <LangVersion>8</LangVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <PackOnBuild>true</PackOnBuild>
+        <OutputType>Library</OutputType>
+
+        <Authors>François Raminosona, Laerdal</Authors>
+        <Copyright>François Raminosona, Laerdal</Copyright>
+        <Owners>François Raminosona, Laerdal</Owners>
+
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <IncludeSource>True</IncludeSource>
+        <IncludeSymbols>True</IncludeSymbols>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <!-- sourcelink: Include PDB in the built .nupkg -->
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <!-- see : https://cezarypiatek.github.io/post/managing-output-in-sdk-projects/ -->
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <!-- sourcelink: Embed source files that are not tracked by the source control manager to the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="../icon.png" Pack="true" PackagePath="\"/>
+        <None Include="../LICENSE" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <!-- NUGET IOS BASE -->
+    <PropertyGroup>
+        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+        <DebugType>full</DebugType>
+        <ConsolePause>false</ConsolePause>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="System"/>
+        <Reference Include="Xamarin.iOS"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.8.0" PrivateAssets="all" />
+    </ItemGroup>
+
+    <!-- NUGET PROJECT SPECIFIC -->
+    <PropertyGroup>
+        <NugetPackageVariantName>Unset</NugetPackageVariantName>
+
+        <ProjectGuid>{24AF7AA4-9A85-4662-8204-F3EB9BE67ECF}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+
+        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS</AssemblyName>
+        <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
+        <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
+        <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
+        <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
+        <Description>Xamarin wrapper around mobile-ffmpeg for iOS</Description>
+        <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
+        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl> 
+        <RepositoryType>git</RepositoryType>
+
+        <PackageVersion>1.0.0</PackageVersion>
+
+        <PackageOutputPath Condition=" '$(PackageOutputPath)' == '' ">../$(AssemblyName).Output</PackageOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <NativeReference Include="Frameworks\*.framework">
+            <Kind>Framework</Kind>
+            <Frameworks>Foundation</Frameworks>
+        </NativeReference>
+        <ObjcBindingApiDefinition Include="Sharpie/*.cs" />
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
