@@ -138,6 +138,7 @@ generate_sharpie_files()
 
 
 # see https://github.com/tanersener/mobile-ffmpeg for more information
+time build_package audio Audio
 time build_package full Full
 time build_package full-gpl Full.Gpl
 time build_package https Https
