@@ -1,7 +1,7 @@
 using System;
 using Foundation;
 
-namespace Framinosona.Xamarin.FFmpeg.iOS
+namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @protocol LogDelegate
 	[Protocol, Model]

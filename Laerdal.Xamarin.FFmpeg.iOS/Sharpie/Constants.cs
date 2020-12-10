@@ -4,7 +4,7 @@ using Foundation;
 using CoreFoundation;
 using UIKit;
 
-namespace Framinosona.Xamarin.FFmpeg.iOS
+namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 
 	[Static]

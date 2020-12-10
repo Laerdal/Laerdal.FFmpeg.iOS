@@ -2,7 +2,7 @@ using System;
 using CoreFoundation;
 using Foundation;
 
-namespace Framinosona.Xamarin.FFmpeg.iOS
+namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MobileFFmpeg : NSObject
 	[BaseType (typeof(NSObject))]
