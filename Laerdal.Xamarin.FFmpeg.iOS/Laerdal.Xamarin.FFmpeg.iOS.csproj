@@ -55,6 +55,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.8.0" PrivateAssets="all" />
+        <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.0" />
     </ItemGroup>
 
     <!-- NUGET PROJECT SPECIFIC -->
