@@ -65,13 +65,20 @@
         <ProjectGuid>{24AF7AA4-9A85-4662-8204-F3EB9BE67ECF}</ProjectGuid>
         <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
 
+        <ExternalLibraries>-</ExternalLibraries>
+
         <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS</AssemblyName>
         <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
+
         <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
         <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
         <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
-        <Description>Xamarin wrapper around mobile-ffmpeg for iOS</Description>
+
+        <Description>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</Description>
+        <PackageDescription>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</PackageDescription>
+
         <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
+        
         <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl> 
         <RepositoryType>git</RepositoryType>
