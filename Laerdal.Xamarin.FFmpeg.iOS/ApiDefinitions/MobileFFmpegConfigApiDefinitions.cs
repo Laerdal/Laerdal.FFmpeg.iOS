@@ -75,7 +75,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 		// +(NSString *)registerNewFFmpegPipe;
 		[Static]
 		[Export ("registerNewFFmpegPipe")]
-		string RegisterNewFFmpegPipe { get; }
+		string RegisterNewFFmpegPipe();
 
 		// +(void)closeFFmpegPipe:(NSString *)ffmpegPipePath;
 		[Static]

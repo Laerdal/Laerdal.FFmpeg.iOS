@@ -92,7 +92,8 @@
             <Kind>Framework</Kind>
             <Frameworks>Foundation</Frameworks>
         </NativeReference>
-        <ObjcBindingApiDefinition Include="Sharpie/*.cs" />
+        <ObjcBindingApiDefinition Include="ApiDefinitions/*.cs" />
+        <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
