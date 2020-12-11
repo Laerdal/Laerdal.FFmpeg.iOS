@@ -67,9 +67,9 @@
 
         <ExternalLibraries>-</ExternalLibraries>
 
-        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS</AssemblyName>
         <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
 
+        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</AssemblyName>
         <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
         <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
         <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
