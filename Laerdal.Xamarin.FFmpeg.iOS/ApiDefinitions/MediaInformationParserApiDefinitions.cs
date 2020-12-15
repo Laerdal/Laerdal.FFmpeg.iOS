@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MediaInformationParser : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface MediaInformationParser
 	{
 		// +(MediaInformation *)from:(NSString *)ffprobeJsonOutput;

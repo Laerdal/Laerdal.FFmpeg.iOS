@@ -6,6 +6,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MobileFFmpeg : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface MobileFFmpeg
 	{
 		// +(int)executeWithArguments:(NSArray *)arguments;

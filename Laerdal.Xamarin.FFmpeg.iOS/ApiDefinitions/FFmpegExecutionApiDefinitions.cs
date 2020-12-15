@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
     // @interface FFmpegExecution : NSObject
     [BaseType (typeof(NSObject))]
+	[Protocol]
     interface FFmpegExecution
     {
         // -(instancetype)initWithExecutionId:(long)newExecutionId andArguments:(NSArray *)arguments;

@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MobileFFprobe : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface MobileFFprobe
 	{
 		// +(int)executeWithArguments:(NSArray *)arguments;

@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface AtomicLong : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface AtomicLong
 	{
 		// -(instancetype)initWithInitialValue:(long)initialValue;

@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MobileFFmpegConfig : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface MobileFFmpegConfig
 	{
 		// +(void)enableRedirection;

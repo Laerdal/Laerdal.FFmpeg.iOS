@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MediaInformation : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface MediaInformation
 	{
 		// -(instancetype)init:(NSDictionary *)mediaDictionary withStreams:(NSArray *)streams;

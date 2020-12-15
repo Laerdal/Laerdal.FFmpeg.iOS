@@ -5,6 +5,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface StreamInformation : NSObject
 	[BaseType (typeof(NSObject))]
+	[Protocol]
 	interface StreamInformation
 	{
 		// -(instancetype)init:(NSDictionary *)streamDictionary;
