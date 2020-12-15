@@ -4,7 +4,11 @@ repo=tanersener/mobile-ffmpeg
 json=$(curl -s https://api.github.com/repos/$repo/releases/latest)
 
 mobile_ffmpeg_version=$(echo "$json" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
-version="$mobile_ffmpeg_version.0"
+
+date=$(date +%m%d)
+time=$(date +%H%M%S)
+
+version="$mobile_ffmpeg_version.$date.$time"
 
 mobile_ffmpeg_source_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
 
