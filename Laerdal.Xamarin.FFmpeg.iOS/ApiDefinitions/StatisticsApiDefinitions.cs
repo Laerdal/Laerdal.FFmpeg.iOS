@@ -4,7 +4,7 @@ using Foundation;
 namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface Statistics : NSObject
-	[BaseType (typeof(NSObject))]
+	[BaseType (typeof(NSObject), Name = "Statistics")]
 	[Protocol]
 	interface Statistics
 	{

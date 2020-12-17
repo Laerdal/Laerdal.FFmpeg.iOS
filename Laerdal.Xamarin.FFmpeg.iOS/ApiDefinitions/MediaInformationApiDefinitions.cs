@@ -4,7 +4,7 @@ using Foundation;
 namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MediaInformation : NSObject
-	[BaseType (typeof(NSObject))]
+	[BaseType (typeof(NSObject), Name = "MediaInformation")]
 	[Protocol]
 	interface MediaInformation
 	{

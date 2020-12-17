@@ -3,7 +3,7 @@ using Foundation;
 
 namespace Laerdal.Xamarin.FFmpeg.iOS
 {
-    public enum Level : int
+    public enum Level : long
     {
         /* This log level is defined by MobileFFmpeg. It is used to specify logs printed to stderr by ffmpeg. Logs that has this level are not filtered and always redirected. */
         STDERR=-16,
@@ -27,7 +27,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
         TRACE=56,
     }
 
-    public enum Abi : int
+    public enum Abi : long
     {
         /* Represents armeabi-v7a ABI with NEON support */
         ARMV7A_NEON=1,
@@ -45,7 +45,7 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
         UNKNOWN=7,
     }
     
-    public enum Signal
+    public enum Signal : long
     {
         SIGINT=2,
         SIGQUIT=3,

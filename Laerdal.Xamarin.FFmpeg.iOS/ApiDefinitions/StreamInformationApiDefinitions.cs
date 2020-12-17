@@ -4,7 +4,7 @@ using Foundation;
 namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface StreamInformation : NSObject
-	[BaseType (typeof(NSObject))]
+	[BaseType (typeof(NSObject), Name = "StreamInformation")]
 	[Protocol]
 	interface StreamInformation
 	{

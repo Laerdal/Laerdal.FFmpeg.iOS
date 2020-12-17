@@ -4,33 +4,28 @@ using Foundation;
 namespace Laerdal.Xamarin.FFmpeg.iOS
 {
 	// @interface MobileFFprobe : NSObject
-	[BaseType (typeof(NSObject))]
+	[BaseType (typeof(NSObject), Name = "MobileFFprobe")]
 	[Protocol]
 	interface MobileFFprobe
 	{
 		// +(int)executeWithArguments:(NSArray *)arguments;
-		[Static]
-		[Export ("executeWithArguments:")]
+		[Static, Export ("executeWithArguments:")]
 		int ExecuteWithArguments (NSString[] arguments);
 
 		// +(int)execute:(NSString *)command;
-		[Static]
-		[Export ("execute:")]
+		[Static, Export ("execute:")]
 		int Execute (string command);
 
 		// +(MediaInformation *)getMediaInformation:(NSString *)path;
-		[Static]
-		[Export ("getMediaInformation:")]
+		[Static, Export ("getMediaInformation:")]
 		MediaInformation GetMediaInformation (string path);
 
 		// +(MediaInformation *)getMediaInformationFromCommand:(NSString *)command;
-		[Static]
-		[Export ("getMediaInformationFromCommand:")]
+		[Static, Export ("getMediaInformationFromCommand:")]
 		MediaInformation GetMediaInformationFromCommand (string command);
 
 		// +(MediaInformation *)getMediaInformation:(NSString *)path timeout:(long)timeout __attribute__((deprecated("")));
-		[Static]
-		[Export ("getMediaInformation:timeout:")]
+		[Static, Export ("getMediaInformation:timeout:")]
 		MediaInformation GetMediaInformation (string path, nint timeout);
 	}
 }

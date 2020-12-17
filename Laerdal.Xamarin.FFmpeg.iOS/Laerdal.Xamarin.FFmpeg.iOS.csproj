@@ -1,99 +1,542 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <Configuration>Release</Configuration>
-        <Configurations>Release</Configurations>
-        <Platform>AnyCPU</Platform>
-        <Platforms>AnyCPU</Platforms>
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
-        <NeutralLanguage>en</NeutralLanguage>
-        <LangVersion>8</LangVersion>
-        <DebugSymbols>true</DebugSymbols>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\</OutputPath>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <PackOnBuild>true</PackOnBuild>
-        <OutputType>Library</OutputType>
+    <PropertyGroup>
+        <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+        <IsBindingProject>true</IsBindingProject>
+        <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <NugetPackageVariantName>Unset</NugetPackageVariantName>
+        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</AssemblyName>
+        <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
+        <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
+        <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
+        <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
+
+        <ExternalLibraries>-</ExternalLibraries>
+        <Description>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</Description>
+        <PackageDescription>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</PackageDescription>
 
         <Authors>François Raminosona, Laerdal</Authors>
-        <Copyright>François Raminosona, Laerdal</Copyright>
         <Owners>François Raminosona, Laerdal</Owners>
+        <Copyright>François Raminosona, Laerdal</Copyright>
+
+        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageVersion>1.0.0</PackageVersion>
+
+        <PackageOutputPath Condition=" '$(PackageOutputPath)' == '' ">../$(RootNamespace).Output</PackageOutputPath>
+
+        <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
 
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <IncludeSource>True</IncludeSource>
         <IncludeSymbols>True</IncludeSymbols>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <!-- sourcelink: Include PDB in the built .nupkg -->
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        <!-- see : https://cezarypiatek.github.io/post/managing-output-in-sdk-projects/ -->
-        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-        <!-- sourcelink: Embed source files that are not tracked by the source control manager to the PDB -->
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
         <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
     <ItemGroup>
         <None Include="../icon.png" Pack="true" PackagePath="\"/>
         <None Include="../LICENSE" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
-    <!-- NUGET IOS BASE -->
-    <PropertyGroup>
-        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-        <DebugType>full</DebugType>
-        <ConsolePause>false</ConsolePause>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Reference Include="System"/>
-        <Reference Include="Xamarin.iOS"/>
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.8.0" PrivateAssets="all" />
-        <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.0" />
+        <Reference Include="Xamarin.iOS" />
     </ItemGroup>
 
-    <!-- NUGET PROJECT SPECIFIC -->
-    <PropertyGroup>
-        <NugetPackageVariantName>Unset</NugetPackageVariantName>
-
-        <ProjectGuid>{24AF7AA4-9A85-4662-8204-F3EB9BE67ECF}</ProjectGuid>
-        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-
-        <ExternalLibraries>-</ExternalLibraries>
-
-        <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
-
-        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</AssemblyName>
-        <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
-        <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
-        <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
-
-        <Description>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</Description>
-        <PackageDescription>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</PackageDescription>
-
-        <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
-        
-        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl> 
-        <RepositoryType>git</RepositoryType>
-
-        <PackageVersion>1.0.0</PackageVersion>
-
-        <PackageOutputPath Condition=" '$(PackageOutputPath)' == '' ">../$(RootNamespace).Output</PackageOutputPath>
-    </PropertyGroup>
     <ItemGroup>
+        <Folder Include="Resources\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.0" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+
+        <NativeReference Include="Frameworks\expat.framework" Condition="Exists('Frameworks\expat.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\jpeg.framework" Condition="Exists('Frameworks\jpeg.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libavfilter.framework" Condition="Exists('Frameworks\libavfilter.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libopencore-amrnb.framework" Condition="Exists('Frameworks\libopencore-amrnb.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libtheoraenc.framework" Condition="Exists('Frameworks\libtheoraenc.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libwebpdemux.framework" Condition="Exists('Frameworks\libwebpdemux.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\soxr.framework" Condition="Exists('Frameworks\soxr.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\x265.framework" Condition="Exists('Frameworks\x265.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\fontconfig.framework" Condition="Exists('Frameworks\fontconfig.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\kvazaar.framework" Condition="Exists('Frameworks\kvazaar.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libavformat.framework" Condition="Exists('Frameworks\libavformat.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libpng.framework" Condition="Exists('Frameworks\libpng.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libvidstab.framework" Condition="Exists('Frameworks\libvidstab.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libwebpmux.framework" Condition="Exists('Frameworks\libwebpmux.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\speex.framework" Condition="Exists('Frameworks\speex.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\xvidcore.framework" Condition="Exists('Frameworks\xvidcore.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\freetype.framework" Condition="Exists('Frameworks\freetype.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\lame.framework" Condition="Exists('Frameworks\lame.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libavutil.framework" Condition="Exists('Frameworks\libavutil.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libsndfile.framework" Condition="Exists('Frameworks\libsndfile.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libvorbis.framework" Condition="Exists('Frameworks\libvorbis.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libxml2.framework" Condition="Exists('Frameworks\libxml2.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\tiff.framework" Condition="Exists('Frameworks\tiff.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\fribidi.framework" Condition="Exists('Frameworks\fribidi.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libaom.framework" Condition="Exists('Frameworks\libaom.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libhogweed.framework" Condition="Exists('Frameworks\libhogweed.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libswresample.framework" Condition="Exists('Frameworks\libswresample.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libvorbisenc.framework" Condition="Exists('Frameworks\libvorbisenc.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\mobileffmpeg.framework" Condition="Exists('Frameworks\mobileffmpeg.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\twolame.framework" Condition="Exists('Frameworks\twolame.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\giflib.framework" Condition="Exists('Frameworks\giflib.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libass.framework" Condition="Exists('Frameworks\libass.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libilbc.framework" Condition="Exists('Frameworks\libilbc.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libswscale.framework" Condition="Exists('Frameworks\libswscale.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libvorbisfile.framework" Condition="Exists('Frameworks\libvorbisfile.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\opus.framework" Condition="Exists('Frameworks\opus.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\vo-amrwbenc.framework" Condition="Exists('Frameworks\vo-amrwbenc.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\gmp.framework" Condition="Exists('Frameworks\gmp.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libavcodec.framework" Condition="Exists('Frameworks\libavcodec.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libnettle.framework" Condition="Exists('Frameworks\libnettle.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libtheora.framework" Condition="Exists('Frameworks\libtheora.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libvpx.framework" Condition="Exists('Frameworks\libvpx.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\shine.framework" Condition="Exists('Frameworks\shine.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\wavpack.framework" Condition="Exists('Frameworks\wavpack.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\gnutls.framework" Condition="Exists('Frameworks\gnutls.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libavdevice.framework" Condition="Exists('Frameworks\libavdevice.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libogg.framework" Condition="Exists('Frameworks\libogg.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libtheoradec.framework" Condition="Exists('Frameworks\libtheoradec.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\libwebp.framework" Condition="Exists('Frameworks\libwebp.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\snappy.framework" Condition="Exists('Frameworks\snappy.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+
+        <NativeReference Include="Frameworks\x264.framework" Condition="Exists('Frameworks\x264.framework')">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>True</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+            <IsCxx>true</IsCxx>
+        </NativeReference>
+        <!--<NativeReference Include="Universal\*-universal\lib\*.a">
+            <Kind>Static</Kind>
+            <SmartLink>False</SmartLink>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++</LinkerFlags>
+            <Frameworks>Foundation CoreMotion GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+        </NativeReference>
         <NativeReference Include="Frameworks\*.framework">
             <Kind>Framework</Kind>
-            <Frameworks>Foundation</Frameworks>
-        </NativeReference>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -lc++ -lz -lbz2 -liconv</LinkerFlags>
+            <SmartLink>False</SmartLink>
+            <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
+        </NativeReference>-->
+        <None Include="Frameworks\mobileffmpeg.framework\mobileffmpeg">
+            <Link>mobileffmpeg.framework</Link>
+        </None>
+        <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
         <ObjcBindingApiDefinition Include="ApiDefinitions/*.cs" />
-        <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
+        <!--<Compile Include="Properties/AssemblyInfo.cs" />-->
+        <Compile Include="LinkerSafeAttribute.cs" />
     </ItemGroup>
-    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

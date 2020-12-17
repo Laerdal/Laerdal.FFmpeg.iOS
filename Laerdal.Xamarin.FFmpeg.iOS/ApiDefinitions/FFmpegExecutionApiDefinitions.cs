@@ -4,7 +4,7 @@ using Foundation;
 namespace Laerdal.Xamarin.FFmpeg.iOS
 {
     // @interface FFmpegExecution : NSObject
-    [BaseType (typeof(NSObject))]
+    [BaseType (typeof(NSObject), Name = "FFmpegExecution")]
 	[Protocol]
     interface FFmpegExecution
     {
