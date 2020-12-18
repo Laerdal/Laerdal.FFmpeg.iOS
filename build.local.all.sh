@@ -1,6 +1,6 @@
 #!/bin/bash
 
-build_revision=$(date +%m%d.%H%M%S)
+build_revision=`date +%m%d.%H%M%S`
 
 usage(){
     echo "### Wrong parameters ###"

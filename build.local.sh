@@ -24,7 +24,7 @@ usage(){
 }
 
 package_variant=
-build_revision=$(date +%m%d.%H%M%S)
+build_revision=`date +%m%d.%H%M%S`
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -62,9 +62,10 @@ package_zip_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
 nuget_frameworks_folder="$nuget_project_folder/Frameworks"
 nuget_output_folder="$nuget_project_name.Output"
 nuget_csproj_path="$nuget_project_folder/$nuget_project_name.csproj"
-github_tag_name=$(cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
+github_tag_name=`cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//'`
 github_short_version=`echo "$github_tag_name" | sed 's/.LTS//'`
 build_version=$github_short_version.$build_revision
+echo "##vso[build.updatebuildnumber]$build_version"
 package_zip_file_name="mobile-ffmpeg-$package_variant-$github_tag_name-ios-framework.zip"
 package_zip_file="$package_zip_folder/$package_zip_file_name"
 

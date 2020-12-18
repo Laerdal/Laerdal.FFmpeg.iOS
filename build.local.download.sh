@@ -17,7 +17,7 @@ fi
 
 package_variant=".*"
 package_zip_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
-github_tag_name=$(cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
+github_tag_name=`cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//'`
 
 # Generates variables
 echo ""
