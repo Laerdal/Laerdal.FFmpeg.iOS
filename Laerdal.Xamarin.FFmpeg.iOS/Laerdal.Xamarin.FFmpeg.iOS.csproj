@@ -3,43 +3,50 @@
     <PropertyGroup>
         <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
         <IsBindingProject>true</IsBindingProject>
-        <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
+        
+        <NugetPackageVariantName>Unset</NugetPackageVariantName>
+        <ExternalLibraries>-</ExternalLibraries>
+
+        <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
+        <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
+        <PackageDescription>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</PackageDescription>
+        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageOutputPath>../$(RootNamespace).Output</PackageOutputPath>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</AssemblyName>
+
+        <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
         <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <NugetPackageVariantName>Unset</NugetPackageVariantName>
-        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</AssemblyName>
-        <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
-        <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
+        <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
+
         <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
-        <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
-
-        <ExternalLibraries>-</ExternalLibraries>
+        <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
         <Description>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</Description>
-        <PackageDescription>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</PackageDescription>
-
         <Authors>François Raminosona, Laerdal</Authors>
         <Owners>François Raminosona, Laerdal</Owners>
         <Copyright>François Raminosona, Laerdal</Copyright>
-
-        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageVersion>1.0.0</PackageVersion>
 
-        <PackageOutputPath Condition=" '$(PackageOutputPath)' == '' ">../$(RootNamespace).Output</PackageOutputPath>
-
-        <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
-
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <IncludeSource>True</IncludeSource>
         <IncludeSymbols>True</IncludeSymbols>
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- sourcelink: Include PDB in the built .nupkg -->
+        <!-- see : https://cezarypiatek.github.io/post/managing-output-in-sdk-projects/ -->
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <!-- sourcelink: Embed source files that are not tracked by the source control manager to the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
     </PropertyGroup>
     <ItemGroup>
         <None Include="../icon.png" Pack="true" PackagePath="\"/>
@@ -517,6 +524,7 @@
             <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
             <IsCxx>true</IsCxx>
         </NativeReference>
+
         <!--<NativeReference Include="Universal\*-universal\lib\*.a">
             <Kind>Static</Kind>
             <SmartLink>False</SmartLink>
@@ -524,6 +532,7 @@
             <LinkerFlags>-ObjC -lc++</LinkerFlags>
             <Frameworks>Foundation CoreMotion GameController VideoToolbox Accelerate CoreVideo</Frameworks>
         </NativeReference>
+        
         <NativeReference Include="Frameworks\*.framework">
             <Kind>Framework</Kind>
             <ForceLoad>True</ForceLoad>
@@ -531,6 +540,7 @@
             <SmartLink>False</SmartLink>
             <Frameworks>Foundation AudioToolbox CoreMotion CoreMedia AVFoundation GameController VideoToolbox Accelerate CoreVideo</Frameworks>
         </NativeReference>-->
+
         <None Include="Frameworks\mobileffmpeg.framework\mobileffmpeg">
             <Link>mobileffmpeg.framework</Link>
         </None>
