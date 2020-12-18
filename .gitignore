@@ -351,5 +351,3 @@ MigrationBackup/
 Laerdal.Xamarin.FFmpeg.iOS/Frameworks/
 Laerdal.Xamarin.FFmpeg.iOS.Output/
 Laerdal.Xamarin.FFmpeg.iOS.Source/
-
-*.info.json

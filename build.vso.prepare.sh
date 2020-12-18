@@ -1,5 +1,7 @@
 #!/bin/bash
 
+package_variant=
+
 build_version=$(Build.BuildNumber)
 
 github_tag_name=$(github.tag_name)
@@ -25,34 +27,6 @@ nuget_frameworks_folder=$(nuget.frameworks_folder)
 [ -z "$nuget_project_name" ] && exit 1
 [ -z "$nuget_output_folder" ] && exit 1
 [ -z "$nuget_frameworks_folder" ] && exit 1
-
-package_variant=
-
-usage(){
-    echo "### Wrong parameters ###"
-    echo "usage: ./build.vso.prepare.sh [-p|--package [audio|full|full-gpl|https|https-gpl|min|min-gpl|video]]"
-    echo "see https://github.com/tanersener/mobile-ffmpeg for more information about the --package parameter"
-}
-
-while [ "$1" != "" ]; do
-    case $1 in
-        -p | --package )        shift
-                                package_variant=$1
-                                ;;
-        -h | --help )           usage
-                                exit
-                                ;;
-        * )                     usage
-                                exit 1
-    esac
-    shift
-done
-
-# Required variables
-if [ -z "$package_variant" ]; then
-    usage
-    exit 1
-fi
 
 # see https://github.com/tanersener/mobile-ffmpeg for more information
 package_libraries="?"
@@ -80,12 +54,10 @@ package_zip_file="$package_zip_folder/$package_zip_file_name"
 nuget_filename="$nuget_project_name.$nuget_variant.$build_version.nupkg"
 nuget_output_file="$nuget_output_folder/$nuget_filename"
 
-echo ""
 echo "##vso[task.setvariable variable=package.variant]$package_variant"
 echo "##vso[task.setvariable variable=package.libraries]$package_libraries"
 echo "##vso[task.setvariable variable=package.zip_file_name]$package_zip_file_name"
 echo "##vso[task.setvariable variable=package.zip_file]$package_zip_file"
-echo ""
 echo "##vso[task.setvariable variable=nuget.variant]$nuget_variant"
 echo "##vso[task.setvariable variable=nuget.filename]$nuget_filename"
 echo "##vso[task.setvariable variable=nuget.filepath]$nuget_output_file"
