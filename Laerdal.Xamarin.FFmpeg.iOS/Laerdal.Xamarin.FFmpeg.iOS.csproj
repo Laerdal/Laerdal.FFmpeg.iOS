@@ -18,6 +18,7 @@
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <!-- sourcelink: Include PDB in the built .nupkg -->
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
 
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -42,7 +43,6 @@
         <IncludeSymbols>True</IncludeSymbols>
 
         <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-        <!-- sourcelink: Include PDB in the built .nupkg -->
         <!-- see : https://cezarypiatek.github.io/post/managing-output-in-sdk-projects/ -->
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <!-- sourcelink: Embed source files that are not tracked by the source control manager to the PDB -->
@@ -61,7 +61,7 @@
         <Folder Include="Resources\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.0" PrivateAssets="all" />
+        <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.2.0" />
     </ItemGroup>
 
     <ItemGroup>
