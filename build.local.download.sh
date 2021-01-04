@@ -17,7 +17,14 @@ fi
 
 package_variant=".*"
 package_zip_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
+
+# Set version
 github_tag_name=`cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//'`
+if [ ! -z "$github_tag_name" ]; then
+    echo "Failed : Could not read Version"
+    cat $github_info_file
+    exit 1
+fi
 
 # Generates variables
 echo ""

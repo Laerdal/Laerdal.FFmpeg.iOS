@@ -15,11 +15,11 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 
 		// +(int)executeWithArgumentsAsync:(NSArray *)arguments withCallback:(id<ExecuteDelegate>)delegate;
 		[Static, Export ("executeWithArgumentsAsync:withCallback:")]
-		int ExecuteWithArgumentsAsync (NSString[] arguments, ExecuteDelegate @delegate);
+		int ExecuteWithArgumentsAsync (NSString[] arguments, IExecuteDelegate @delegate);
 
 		// +(int)executeWithArgumentsAsync:(NSArray *)arguments withCallback:(id<ExecuteDelegate>)delegate andDispatchQueue:(dispatch_queue_t)queue;
 		[Static, Export ("executeWithArgumentsAsync:withCallback:andDispatchQueue:")]
-		int ExecuteWithArgumentsAsync (NSString[] arguments, ExecuteDelegate @delegate, DispatchQueue queue);
+		int ExecuteWithArgumentsAsync (NSString[] arguments, IExecuteDelegate @delegate, DispatchQueue queue);
 
 		// +(int)execute:(NSString *)command;
 		[Static, Export ("execute:")]
@@ -27,11 +27,11 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 
 		// +(int)executeAsync:(NSString *)command withCallback:(id<ExecuteDelegate>)delegate;
 		[Static, Export ("executeAsync:withCallback:")]
-		int ExecuteAsync (string command, ExecuteDelegate @delegate);
+		int ExecuteAsync (string command, IExecuteDelegate @delegate);
 
 		// +(int)executeAsync:(NSString *)command withCallback:(id<ExecuteDelegate>)delegate andDispatchQueue:(dispatch_queue_t)queue;
 		[Static, Export ("executeAsync:withCallback:andDispatchQueue:")]
-		int ExecuteAsync (string command, ExecuteDelegate @delegate, DispatchQueue queue);
+		int ExecuteAsync (string command, IExecuteDelegate @delegate, DispatchQueue queue);
 
 		// +(int)execute:(NSString *)command delimiter:(NSString *)delimiter __attribute__((deprecated("")));
 		[Static, Export ("execute:delimiter:")]

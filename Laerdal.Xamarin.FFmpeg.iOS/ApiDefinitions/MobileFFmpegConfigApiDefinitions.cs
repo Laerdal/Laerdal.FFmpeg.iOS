@@ -30,11 +30,11 @@ namespace Laerdal.Xamarin.FFmpeg.iOS
 
 		// +(void)setLogDelegate:(id<LogDelegate>)newLogDelegate;
 		[Static, Export ("setLogDelegate:")]
-		void SetLogDelegate (LogDelegate newLogDelegate);
+		void SetLogDelegate (ILogDelegate newLogDelegate);
 
 		// +(void)setStatisticsDelegate:(id<StatisticsDelegate>)newStatisticsDelegate;
 		[Static, Export ("setStatisticsDelegate:")]
-		void SetStatisticsDelegate (StatisticsDelegate newStatisticsDelegate);
+		void SetStatisticsDelegate (IStatisticsDelegate newStatisticsDelegate);
 
 		// +(Statistics *)getLastReceivedStatistics;
 		[Static, Export ("getLastReceivedStatistics")]

@@ -21,6 +21,14 @@ echo ""
 echo "### INFORMATION ###"
 echo ""
 
+# Set version
+github_tag_name=`cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//'`
+if [ -z "$github_tag_name" ]; then
+    echo "Failed : Could not read Version"
+    cat $github_info_file
+    exit 1
+fi
+
 # Static configuration
 nuget_project_folder=Laerdal.Xamarin.FFmpeg.iOS
 package_zip_folder=Laerdal.Xamarin.FFmpeg.iOS.Source
@@ -30,7 +38,6 @@ sharpie_output_path=$nuget_project_folder/Sharpie_Generated
 sharpie_output_file=$sharpie_output_path/mobileffmpegApiDefinitions.cs
 
 nuget_frameworks_folder=$nuget_project_folder/Frameworks
-github_tag_name=$(cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
 package_zip_file_name=mobile-ffmpeg-$package_variant-$github_tag_name-ios-framework.zip
 package_zip_file=$package_zip_folder/$package_zip_file_name
 
