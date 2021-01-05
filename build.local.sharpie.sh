@@ -68,7 +68,7 @@ cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cu
 cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \" | wget -q --show-progress -nc -P $package_zip_folder -i -
 
 if [ ! -f "$package_zip_file" ]; then
-    echo "Failed"
+    echo "Failed : Can't find '$package_zip_file'"
     exit 1
 fi
 
@@ -82,7 +82,7 @@ echo "Frameworks :"
 ls $nuget_frameworks_folder
 
 if [ ! -d "$nuget_frameworks_folder/mobileffmpeg.framework" ]; then
-    echo "Failed"
+    echo "Failed : Can't find '$nuget_frameworks_folder/mobileffmpeg.framework'"
     exit 1
 fi
 
@@ -93,16 +93,10 @@ echo ""
 sharpie bind -sdk iphoneos -p mobileffmpeg -o $sharpie_output_path -scope $nuget_frameworks_folder/mobileffmpeg.framework/Headers/ -f $nuget_frameworks_folder/mobileffmpeg.framework
 
 if [ -f "$sharpie_output_file" ]; then
-    echo ""
-    echo "### SUCCESS ###"
-    echo ""
-
     # Cleaning
     rm -rf $nuget_frameworks_folder
 
 else
-    echo ""
-    echo "### FAILED ###"
-    echo ""
+    echo "Failed : Can't find '$sharpie_output_file'"
     exit 1
 fi

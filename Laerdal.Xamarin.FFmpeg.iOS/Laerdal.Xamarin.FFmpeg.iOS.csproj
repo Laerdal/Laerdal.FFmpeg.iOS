@@ -47,6 +47,8 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <!-- sourcelink: Embed source files that are not tracked by the source control manager to the PDB -->
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <!-- warning MSB9004: ManifestResourceWithNoCulture item type is deprecated. Emit EmbeddedResource items instead, with metadata WithCulture='false', Type='Resx', and optional LogicalName. -->
+        <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB9004</MSBuildWarningsAsMessages>
     </PropertyGroup>
     <ItemGroup>
         <None Include="../icon.png" Pack="true" PackagePath="\"/>
@@ -65,7 +67,6 @@
     </ItemGroup>
 
     <ItemGroup>
-
         <NativeReference Include="Frameworks\expat.framework" Condition="Exists('Frameworks\expat.framework')">
             <Kind>Framework</Kind>
             <ForceLoad>True</ForceLoad>

@@ -18,12 +18,13 @@ fi
 # VARIABLES
 usage(){
     echo "### Wrong parameters ###"
-    echo "usage: ./build.local.sh [-p|--package [audio|full|full-gpl|https|https-gpl|min|min-gpl|video]] [-r|--revision build_revision]"
+    echo "usage: ./build.local.sh [-p|--package [audio|full|full-gpl|https|https-gpl|min|min-gpl|video]] [-r|--revision build_revision] [-c|--clean-output]"
     echo "see https://github.com/tanersener/mobile-ffmpeg for more information about the --package parameter"
 }
 
+clean_output=0
 package_variant=
-build_revision=`date +%m%d.%H%M%S`
+build_revision=`date +%-m%d.%-H%M%S`
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -32,6 +33,8 @@ while [ "$1" != "" ]; do
                                 ;;
         -r | --revision )       shift
                                 build_revision=$1
+                                ;;
+        -c | --clean-output )   clean_output=1
                                 ;;
         -h | --help )           usage
                                 exit
@@ -102,6 +105,7 @@ nuget_filename="$nuget_project_name.$nuget_variant.$build_version.nupkg"
 nuget_output_file="$nuget_output_folder/$nuget_filename"
 
 # Generates variables
+echo "clean_output = $clean_output"
 echo "build_version = $build_version"
 echo ""
 echo "github_repo_owner = $github_repo_owner"
@@ -125,6 +129,18 @@ echo "nuget_frameworks_folder = $nuget_frameworks_folder"
 echo "nuget_csproj_path = $nuget_csproj_path"
 echo "nuget_filename = $nuget_filename"
 
+if [ $clean_output = 1 ]; then
+    echo ""
+    echo "### CLEANING OUTPUT ###"
+    echo ""
+    old_nupkg="$nuget_output_folder/$nuget_project_name.$nuget_variant.*.nupkg"
+    old_snupkg="$nuget_output_folder/$nuget_project_name.$nuget_variant.*.snupkg"
+    rm -rf $old_nupkg
+    echo "Deleted : $old_nupkg"
+    rm -rf $old_snupkg
+    echo "Deleted : $old_snupkg"
+fi
+
 echo ""
 echo "### DOWNLOAD GITHUB RELEASE FILES ###"
 echo ""
@@ -136,7 +152,7 @@ cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cu
 cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \" | wget -q --show-progress -nc -P $package_zip_folder -i -
 
 if [ ! -f "$package_zip_file" ]; then
-    echo "Failed"
+    echo "Failed : Can't find '$package_zip_file'"
     exit 1
 fi
 
@@ -150,7 +166,7 @@ echo "Frameworks :"
 ls $nuget_frameworks_folder
 
 if [ ! -d "$nuget_frameworks_folder/mobileffmpeg.framework" ]; then
-    echo "Failed"
+    echo "Failed : Can't find '$nuget_frameworks_folder/mobileffmpeg.framework'"
     exit 1
 fi
 
@@ -164,16 +180,8 @@ msbuild $nuget_csproj_path -t:Rebuild -restore:True -p:Configuration=Release -p:
 
 
 if [ -f "$nuget_output_file" ]; then
-    echo ""
-    echo "### SUCCESS ###"
-    echo ""
-
-    # Cleaning
     rm -rf $nuget_frameworks_folder
-
 else
-    echo ""
-    echo "### FAILED ###"
-    echo ""
+    echo "Failed : Can't find '$nuget_output_file'"
     exit 1
 fi
