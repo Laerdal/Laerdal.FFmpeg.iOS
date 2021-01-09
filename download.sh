@@ -20,8 +20,6 @@ package_zip_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
 # Set version
 github_tag_name=`cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//'`
 github_short_version=`echo "$github_tag_name" | sed 's/.LTS//'`
-build_version=$github_short_version.$build_revision
-echo "##vso[build.updatebuildnumber]$build_version"
 if [ -z "$github_short_version" ]; then
     echo "Failed : Could not read Version"
     cat $github_info_file
@@ -34,8 +32,6 @@ echo ""
 echo "### INFORMATION ###"
 echo ""
 
-echo "build_version = $build_version"
-echo ""
 echo "github_repo_owner = $github_repo_owner"
 echo "github_repo = $github_repo"
 echo "github_release_id = $github_release_id"
