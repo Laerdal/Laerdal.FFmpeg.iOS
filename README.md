@@ -1,34 +1,41 @@
 # Laerdal.Xamarin.FFmpeg.iOS
 
-Xamarin binding library around @tanersener's Mobile-FFmpeg library. The native iOS library is located here: https://github.com/tanersener/mobile-ffmpeg
+> Xamarin.Android package : <https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.Android>
+>
+> Xamarin.Forms package : <https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg>
 
-Mobile FFmpeg Package | Laerdal.Xamarin.FFmpeg.iOS | Laerdal.Xamarin.FFmpeg.Android |
-|     :----    |     :----:    |     :----:    |
-Audio | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Audio)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Audio/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Audio)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Audio/) |
-Full | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Full)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Full/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Full)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Full/) |
-Full.Gpl | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Full.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Full.Gpl/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Full.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Full.Gpl/) |
-Https | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Https)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Https/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Https)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Https/) |
-Https.Gpl | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Https.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Https.Gpl/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Https.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Https.Gpl/) |
-Min | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Min)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Min/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Min)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Min/) |
-Min.Gpl | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Min.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Min.Gpl/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Min.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Min.Gpl/) |
-Video | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Video)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Video/) | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.Android.Video)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.Android.Video/) |
+Xamarin binding library around @tanersener's Mobile-FFmpeg library.
+
+The native iOS library can be found here: <https://github.com/tanersener/mobile-ffmpeg>
+
+| Mobile FFmpeg Package | Laerdal.Xamarin.FFmpeg.iOS |
+|     :----    |     :----:    |
+| Audio | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Audio)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Audio/) |
+| Full | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Full)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Full/) |
+| Full.Gpl | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Full.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Full.Gpl/) |
+| Https | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Https)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Https/) |
+| Https.Gpl | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Https.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Https.Gpl/) |
+| Min | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Min)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Min/) |
+| Min.Gpl | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Min.Gpl)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Min.Gpl/) |
+| Video | [![NuGet Badge](https://buildstats.info/nuget/Laerdal.Xamarin.FFmpeg.iOS.Video)](https://www.nuget.org/packages/Laerdal.Xamarin.FFmpeg.iOS.Video/) |
 
 ## External libraries
 
-Mobile FFmpeg Package | External libraries |
+| Package | External libraries |
 |     :----    | :----: |
-Audio | lame libilbc libvorbis opencore-amr opus shine soxr speex twolame vo-amrwbenc wavpack |
-Full | fontconfig freetype fribidi gmp gnutls kvazaar lame libaom libass libiconv libilbc libtheora libvorbis libvpx libwebp libxml2 opencore-amr opus shine snappy soxr speex twolame vo-amrwbenc wavpack |
-Full.Gpl | fontconfig freetype fribidi gmp gnutls kvazaar lame libaom libass libiconv libilbc libtheora libvorbis libvpx libwebp libxml2 opencore-amr opus shine snappy soxr speex twolame vid.stab vo-amrwbenc wavpack x264 x265 xvidcore |
-Https | gmp gnutls |
-Https.Gpl | gmp gnutls vid.stab x264 x265 xvidcore |
-Min | - |
-Min.Gpl | vid.stab x264 x265 xvidcore |
-Video | fontconfig freetype fribidi kvazaar libaom libass libiconv libtheora libvpx libwebp snappy |
+| Audio | lame libilbc libvorbis opencore-amr opus shine soxr speex twolame vo-amrwbenc wavpack |
+| Full | fontconfig freetype fribidi gmp gnutls kvazaar lame libaom libass libiconv libilbc libtheora libvorbis libvpx libwebp libxml2 opencore-amr opus shine snappy soxr speex twolame vo-amrwbenc wavpack |
+| Full.Gpl | fontconfig freetype fribidi gmp gnutls kvazaar lame libaom libass libiconv libilbc libtheora libvorbis libvpx libwebp libxml2 opencore-amr opus shine snappy soxr speex twolame vid.stab vo-amrwbenc wavpack x264 x265 xvidcore |
+| Https | gmp gnutls |
+| Https.Gpl | gmp gnutls vid.stab x264 x265 xvidcore |
+| Min | - |
+| Min.Gpl | vid.stab x264 x265 xvidcore |
+| Video | fontconfig freetype fribidi kvazaar libaom libass libiconv libtheora libvpx libwebp snappy |
 
 ## Folder structure
 
-- Laerdal.Xamarin.FFmpeg.iOS = Xamarin ObjectiveC Binding Library project and nuget files
+- Laerdal.Xamarin.FFmpeg.iOS = Xamarin Binding Library project and nuget files
+- Laerdal.Xamarin.FFmpeg.iOS.Source = Source files from Github release
 - Laerdal.Xamarin.FFmpeg.iOS.Output = Build output from building *Laerdal.Xamarin.FFmpeg.iOS*
 
 ## Local build
@@ -42,10 +49,7 @@ You'll need :
   - with **Xamarin.iOS** (obviously)
   - [with **ObjectiveSharpie**] :
 
-```bash
-brew cask install objectivesharpie
-```
-
+[Download Latest Release](https://aka.ms/objective-sharpie)
 [More about Objective Sharpie](https://docs.microsoft.com/en-us/xamarin/cross-platform/macios/binding/objective-sharpie/get-started)
 
 ### Steps to build
@@ -56,18 +60,50 @@ brew cask install objectivesharpie
 git clone https://github.com/Laerdal/Laerdal.Xamarin.Dfu.iOS.git
 ```
 
-#### 2) Download latest Release from [tanersener/mobile-ffmpeg](https://github.com/tanersener/mobile-ffmpeg/releases)
+#### 2) Run build script
+
+Usage:
 
 ```bash
-./download.sh
+./build.sh [-p|--package [audio|full|full-gpl|https|https-gpl|min|min-gpl|video]] [-r|--revision build_revision] [-c|--clean-output] [-v|--verbose] [-s|--sharpie]
 ```
 
-#### 3) Build all Nuget packages
+Parameters:
+
+- -p | --package [audio|full|full-gpl|https|https-gpl|min|min-gpl|video]
+  - Multiple -p paramaters can be added.
+  - Everything will be built if no -p parameter is used.
+  - See <https://github.com/tanersener/mobile-ffmpeg> for more information
+- -r | --revision [build_revision]
+  - Sets the revision number, default = mdd.hMMSS
+- -c | --clean-output
+  - Cleans the output before building
+- -v | --verbose
+  - Enable verbose build details from msbuild tasks
+- -s | --sharpie
+  - Regenerates objective sharpie autogenerated files, useful to spot API changes
+- -h | --help
+  - Prints this message
+
+To build only full and full-gpl, clean the output and run objective sharpie to update the ApiDefinitions :
+
+```bash
+./build.sh -p full -p full-gpl -c -s
+```
+
+To build everything :
 
 ```bash
 ./build.sh
 ```
 
-#### 4) Review changes in Laerdal.Xamarin.FFmpeg.iOS/Sharpie_Generated
+#### 3) Review changes in Laerdal.Xamarin.FFmpeg.iOS/Sharpie_Generated
 
-The `./build.sh` script runs the objective sharpie command. You need to review if any API changes have occured in Laerdal.Xamarin.FFmpeg.iOS/Sharpie_Generated.
+The `./build.sh` script can run the objective sharpie command. You need to review if any API changes have occured in Laerdal.Xamarin.FFmpeg.iOS/Sharpie_Generated.
+
+#### Other scripts
+
+- `./download.sh`
+  - Downloads all the Github release files that would be needed in build.
+- `./sharpie.sh`
+  - Only downloads the 'min' release file and generates the Sharpie files.

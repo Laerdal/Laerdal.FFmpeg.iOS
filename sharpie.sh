@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# GITHUB INFORMATION
+# find the latest ID here : https://api.github.com/repos/tanersener/mobile-ffmpeg/releases/latest
 github_repo_owner=tanersener
 github_repo=mobile-ffmpeg
 github_release_id=28895129
@@ -93,9 +93,10 @@ echo ""
 sharpie bind -sdk iphoneos -p mobileffmpeg -o $sharpie_output_path -scope $nuget_frameworks_folder/mobileffmpeg.framework/Headers/ -f $nuget_frameworks_folder/mobileffmpeg.framework
 
 if [ -f "$sharpie_output_file" ]; then
-    # Cleaning
+    echo "Created :"
+    echo "  - $sharpie_output_file"
+    echo ""
     rm -rf $nuget_frameworks_folder
-
 else
     echo "Failed : Can't find '$sharpie_output_file'"
     exit 1
