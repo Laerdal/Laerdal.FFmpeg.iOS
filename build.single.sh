@@ -155,7 +155,17 @@ mkdir -p $package_zip_folder
 
 echo "Files matching '$package_zip_file_name' :"
 cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \"
-cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \" | wget -q --show-progress -nc -P $package_zip_folder -i -
+wget_parameters="${wget_parameters} -q" # Quiet
+if [ "$verbose" = "1" ]; then
+    wget_parameters="${wget_parameters} --show-progress"
+fi
+wget_parameters="${wget_parameters} -nc"
+wget_parameters="${wget_parameters} -P $package_zip_folder"
+wget_parameters="${wget_parameters} -i"
+wget_parameters="${wget_parameters} -"
+echo ""
+echo "wget_parameters = $wget_parameters"
+cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \" | wget $wget_parameters
 
 if [ ! -f "$package_zip_file" ]; then
     echo "Failed : Can't find '$package_zip_file'"
