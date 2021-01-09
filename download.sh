@@ -17,8 +17,12 @@ fi
 
 package_zip_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
 
+# Set version
 github_tag_name=`cat $github_info_file | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//'`
-if [ ! -z "$github_tag_name" ]; then
+github_short_version=`echo "$github_tag_name" | sed 's/.LTS//'`
+build_version=$github_short_version.$build_revision
+echo "##vso[build.updatebuildnumber]$build_version"
+if [ -z "$github_short_version" ]; then
     echo "Failed : Could not read Version"
     cat $github_info_file
     exit 1
@@ -30,11 +34,14 @@ echo ""
 echo "### INFORMATION ###"
 echo ""
 
+echo "build_version = $build_version"
+echo ""
 echo "github_repo_owner = $github_repo_owner"
 echo "github_repo = $github_repo"
 echo "github_release_id = $github_release_id"
 echo "github_info_file = $github_info_file"
 echo "github_tag_name = $github_tag_name"
+echo "github_short_version = $github_short_version"
 echo ""
 echo "package_zip_folder = $package_zip_folder"
 echo "package_zip_file_name_pattern = $package_zip_file_name_pattern"
@@ -46,7 +53,7 @@ echo ""
 mkdir -p $package_zip_folder
 echo "Files matching '$package_zip_file_name_pattern' :"
 cat $github_info_file | grep "browser_download_url.*$package_zip_file_name_pattern" | cut -d : -f 2,3 | tr -d \"
-cat $github_info_file | grep "browser_download_url.*$package_zip_file_name_pattern" | cut -d : -f 2,3 | tr -d \" | wget -q --show-progress -nc -P $package_zip_folder -i -
+cat $github_info_file | grep "browser_download_url.*$package_zip_file_name_pattern" | cut -d : -f 2,3 | tr -d \" | wget -q -nc -P $package_zip_folder -i -
 
 echo ""
 echo "### DONE ###"
