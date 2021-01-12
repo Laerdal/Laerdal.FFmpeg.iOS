@@ -53,7 +53,7 @@ github_info_file="$github_repo_owner.$github_repo.$github_release_id.info.json"
 
 if [ ! -f "$github_info_file" ]; then
     echo ""
-    echo "### DOWNLOADING GITHUB INFORMATION ###"
+    echo "### DOWNLOAD GITHUB INFORMATION ###"
     echo ""
     github_info_file_url=https://api.github.com/repos/$github_repo_owner/$github_repo/releases/$github_release_id
     echo "Downloading $github_info_file_url to $github_info_file"
@@ -106,7 +106,7 @@ nuget_output_file="$nuget_output_folder/$nuget_filename"
 
 nuget_frameworks_folder="$nuget_project_folder/Frameworks"
 
-package_zip_folder="Laerdal.Xamarin.FFmpeg.iOS.Source"
+package_zip_folder="$nuget_project_name.Source"
 package_zip_file_name="mobile-ffmpeg-$package_variant-$github_tag_name-ios-framework.zip"
 package_zip_file="$package_zip_folder/$package_zip_file_name"
 
@@ -155,14 +155,15 @@ mkdir -p $package_zip_folder
 
 echo "Files matching '$package_zip_file_name' :"
 cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \"
+
 wget_parameters="${wget_parameters} -q" # Quiet
 if [ "$verbose" = "1" ]; then
-    wget_parameters="${wget_parameters} --show-progress"
+    wget_parameters="${wget_parameters} --show-progress" # Force wget to display the progress bar.
 fi
-wget_parameters="${wget_parameters} -nc"
-wget_parameters="${wget_parameters} -P $package_zip_folder"
-wget_parameters="${wget_parameters} -i"
-wget_parameters="${wget_parameters} -"
+wget_parameters="${wget_parameters} -nc" # --no-clobber = keep existing file
+wget_parameters="${wget_parameters} -P $package_zip_folder" #--directory-prefix = Output directory
+wget_parameters="${wget_parameters} -i -" # Input (If you specify ‘-’ as file name, the URLs will be read from standard input.)
+
 echo ""
 echo "wget_parameters = $wget_parameters"
 cat $github_info_file | grep "browser_download_url.*$package_zip_file_name" | cut -d : -f 2,3 | tr -d \" | wget $wget_parameters
@@ -205,8 +206,8 @@ fi
 msbuild_parameters="${msbuild_parameters} -t:Rebuild"
 msbuild_parameters="${msbuild_parameters} -restore:True"
 msbuild_parameters="${msbuild_parameters} -p:Configuration=Release"
-msbuild_parameters="${msbuild_parameters} -p:NugetPackageVariantName=$nuget_variant"
 msbuild_parameters="${msbuild_parameters} -p:PackageVersion=$build_version"
+msbuild_parameters="${msbuild_parameters} -p:NugetPackageVariantName=$nuget_variant"
 msbuild_parameters="${msbuild_parameters} -p:ExternalLibraries=\"$package_libraries\""
 echo "msbuild_parameters = $msbuild_parameters"
 echo ""

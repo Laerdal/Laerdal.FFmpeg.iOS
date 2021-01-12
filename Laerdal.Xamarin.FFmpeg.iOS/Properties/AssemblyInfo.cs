@@ -1,8 +1,13 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 using Foundation;
 
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
 
 // This attribute allows you to mark your assemblies as “safe to link”. 
 // When the attribute is present, the linker—if enabled—will process the assembly 

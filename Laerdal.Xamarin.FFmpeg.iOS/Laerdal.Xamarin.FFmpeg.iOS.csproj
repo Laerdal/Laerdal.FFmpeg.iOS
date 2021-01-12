@@ -32,7 +32,6 @@
         <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
 
-        <!-- <PackOnBuild>true</PackOnBuild> -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <!-- sourcelink: Include PDB in the built .nupkg -->
