@@ -16,10 +16,7 @@
 
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-        <Optimize>false</Optimize>
         <OutputPath>bin</OutputPath>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
         <MTouchExtraArgs>-v -v -v -v</MTouchExtraArgs>
     </PropertyGroup>
 
