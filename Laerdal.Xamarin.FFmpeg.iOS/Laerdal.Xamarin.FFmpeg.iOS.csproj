@@ -17,7 +17,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
         <OutputPath>bin</OutputPath>
-        <MTouchExtraArgs>-v -v -v -v</MTouchExtraArgs>
+        <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -64,7 +64,6 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <!-- <Compile Include="LinkerSafeAttribute.cs" /> -->
         <None Include="../icon.png" Pack="true" PackagePath="\"/>
         <None Include="../LICENSE" Pack="true" PackagePath="\"/>
     </ItemGroup>
@@ -83,7 +82,6 @@
     <ItemGroup Condition="Exists('Frameworks\libavcodec.framework')">
         <None Include="Frameworks\libavcodec.framework\libavcodec">
             <Link>Frameworks\libavcodec.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libavcodec.framework">
@@ -98,7 +96,6 @@
     <ItemGroup Condition="Exists('Frameworks\libavutil.framework')">
         <None Include="Frameworks\libavutil.framework\libavutil">
             <Link>Frameworks\libavutil.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libavutil.framework">
@@ -113,7 +110,6 @@
     <ItemGroup Condition="Exists('Frameworks\mobileffmpeg.framework')">
         <None Include="Frameworks\mobileffmpeg.framework\mobileffmpeg">
             <Link>Frameworks\mobileffmpeg.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\mobileffmpeg.framework">
@@ -128,7 +124,6 @@
     <ItemGroup Condition="Exists('Frameworks\libavformat.framework')">
         <None Include="Frameworks\libavformat.framework\libavformat">
             <Link>Frameworks\libavformat.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libavformat.framework">
@@ -143,7 +138,6 @@
     <ItemGroup Condition="Exists('Frameworks\snappy.framework')">
         <None Include="Frameworks\snappy.framework\snappy">
             <Link>Frameworks\snappy.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\snappy.framework">
@@ -158,7 +152,6 @@
     <ItemGroup Condition="Exists('Frameworks\expat.framework')">
         <None Include="Frameworks\expat.framework\expat">
             <Link>Frameworks\expat.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\expat.framework">
@@ -172,7 +165,6 @@
     <ItemGroup Condition="Exists('Frameworks\jpeg.framework')">
         <None Include="Frameworks\jpeg.framework\jpeg">
             <Link>Frameworks\jpeg.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\jpeg.framework">
@@ -186,7 +178,6 @@
     <ItemGroup Condition="Exists('Frameworks\libavfilter.framework')">
         <None Include="Frameworks\libavfilter.framework\libavfilter">
             <Link>Frameworks\libavfilter.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libavfilter.framework">
@@ -200,7 +191,6 @@
     <ItemGroup Condition="Exists('Frameworks\libopencore-amrnb.framework')">
         <None Include="Frameworks\libopencore-amrnb.framework\libopencore-amrnb">
             <Link>Frameworks\libopencore-amrnb.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libopencore-amrnb.framework">
@@ -214,7 +204,6 @@
     <ItemGroup Condition="Exists('Frameworks\libtheoraenc.framework')">
         <None Include="Frameworks\libtheoraenc.framework\libtheoraenc">
             <Link>Frameworks\libtheoraenc.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libtheoraenc.framework">
@@ -228,7 +217,6 @@
     <ItemGroup Condition="Exists('Frameworks\libwebpdemux.framework')">
         <None Include="Frameworks\libwebpdemux.framework\libwebpdemux">
             <Link>Frameworks\libwebpdemux.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libwebpdemux.framework">
@@ -242,7 +230,6 @@
     <ItemGroup Condition="Exists('Frameworks\soxr.framework')">
         <None Include="Frameworks\soxr.framework\soxr">
             <Link>Frameworks\soxr.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\soxr.framework">
@@ -256,7 +243,6 @@
     <ItemGroup Condition="Exists('Frameworks\x265.framework')">
         <None Include="Frameworks\x265.framework\x265">
             <Link>Frameworks\x265.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\x265.framework">
@@ -270,7 +256,6 @@
     <ItemGroup Condition="Exists('Frameworks\fontconfig.framework')">
         <None Include="Frameworks\fontconfig.framework\fontconfig">
             <Link>Frameworks\fontconfig.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\fontconfig.framework">
@@ -284,7 +269,6 @@
     <ItemGroup Condition="Exists('Frameworks\kvazaar.framework')">
         <None Include="Frameworks\kvazaar.framework\kvazaar">
             <Link>Frameworks\kvazaar.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\kvazaar.framework">
@@ -298,7 +282,6 @@
     <ItemGroup Condition="Exists('Frameworks\libpng.framework')">
         <None Include="Frameworks\libpng.framework\libpng">
             <Link>Frameworks\libpng.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libpng.framework">
@@ -312,7 +295,6 @@
     <ItemGroup Condition="Exists('Frameworks\libvidstab.framework')">
         <None Include="Frameworks\libvidstab.framework\libvidstab">
             <Link>Frameworks\libvidstab.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libvidstab.framework">
@@ -326,7 +308,6 @@
     <ItemGroup Condition="Exists('Frameworks\libwebpmux.framework')">
         <None Include="Frameworks\libwebpmux.framework\libwebpmux">
             <Link>Frameworks\libwebpmux.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libwebpmux.framework">
@@ -340,7 +321,6 @@
     <ItemGroup Condition="Exists('Frameworks\speex.framework')">
         <None Include="Frameworks\speex.framework\speex">
             <Link>Frameworks\speex.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\speex.framework">
@@ -354,7 +334,6 @@
     <ItemGroup Condition="Exists('Frameworks\xvidcore.framework')">
         <None Include="Frameworks\xvidcore.framework\xvidcore">
             <Link>Frameworks\xvidcore.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\xvidcore.framework">
@@ -368,7 +347,6 @@
     <ItemGroup Condition="Exists('Frameworks\freetype.framework')">
         <None Include="Frameworks\freetype.framework\freetype">
             <Link>Frameworks\freetype.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\freetype.framework">
@@ -382,7 +360,6 @@
     <ItemGroup Condition="Exists('Frameworks\lame.framework')">
         <None Include="Frameworks\lame.framework\lame">
             <Link>Frameworks\lame.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\lame.framework">
@@ -396,7 +373,6 @@
     <ItemGroup Condition="Exists('Frameworks\libsndfile.framework')">
         <None Include="Frameworks\libsndfile.framework\libsndfile">
             <Link>Frameworks\libsndfile.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libsndfile.framework">
@@ -410,7 +386,6 @@
     <ItemGroup Condition="Exists('Frameworks\libvorbis.framework')">
         <None Include="Frameworks\libvorbis.framework\libvorbis">
             <Link>Frameworks\libvorbis.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libvorbis.framework">
@@ -424,7 +399,6 @@
     <ItemGroup Condition="Exists('Frameworks\libxml2.framework')">
         <None Include="Frameworks\libxml2.framework\libxml2">
             <Link>Frameworks\libxml2.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libxml2.framework">
@@ -438,7 +412,6 @@
     <ItemGroup Condition="Exists('Frameworks\tiff.framework')">
         <None Include="Frameworks\tiff.framework\tiff">
             <Link>Frameworks\tiff.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\tiff.framework">
@@ -452,7 +425,6 @@
     <ItemGroup Condition="Exists('Frameworks\fribidi.framework')">
         <None Include="Frameworks\fribidi.framework\fribidi">
             <Link>Frameworks\fribidi.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\fribidi.framework">
@@ -466,7 +438,6 @@
     <ItemGroup Condition="Exists('Frameworks\libaom.framework')">
         <None Include="Frameworks\libaom.framework\libaom">
             <Link>Frameworks\libaom.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libaom.framework">
@@ -480,7 +451,6 @@
     <ItemGroup Condition="Exists('Frameworks\libhogweed.framework')">
         <None Include="Frameworks\libhogweed.framework\libhogweed">
             <Link>Frameworks\libhogweed.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libhogweed.framework">
@@ -494,7 +464,6 @@
     <ItemGroup Condition="Exists('Frameworks\libswresample.framework')">
         <None Include="Frameworks\libswresample.framework\libswresample">
             <Link>Frameworks\libswresample.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libswresample.framework">
@@ -508,7 +477,6 @@
     <ItemGroup Condition="Exists('Frameworks\libvorbisenc.framework')">
         <None Include="Frameworks\libvorbisenc.framework\libvorbisenc">
             <Link>Frameworks\libvorbisenc.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libvorbisenc.framework">
@@ -522,7 +490,6 @@
     <ItemGroup Condition="Exists('Frameworks\twolame.framework')">
         <None Include="Frameworks\twolame.framework\twolame">
             <Link>Frameworks\twolame.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\twolame.framework">
@@ -536,7 +503,6 @@
     <ItemGroup Condition="Exists('Frameworks\giflib.framework')">
         <None Include="Frameworks\giflib.framework\giflib">
             <Link>Frameworks\giflib.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\giflib.framework">
@@ -550,7 +516,6 @@
     <ItemGroup Condition="Exists('Frameworks\libass.framework')">
         <None Include="Frameworks\libass.framework\libass">
             <Link>Frameworks\libass.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libass.framework">
@@ -564,7 +529,6 @@
     <ItemGroup Condition="Exists('Frameworks\libilbc.framework')">
         <None Include="Frameworks\libilbc.framework\libilbc">
             <Link>Frameworks\libilbc.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libilbc.framework">
@@ -578,7 +542,6 @@
     <ItemGroup Condition="Exists('Frameworks\libswscale.framework')">
         <None Include="Frameworks\libswscale.framework\libswscale">
             <Link>Frameworks\libswscale.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libswscale.framework">
@@ -592,7 +555,6 @@
     <ItemGroup Condition="Exists('Frameworks\libvorbisfile.framework')">
         <None Include="Frameworks\libvorbisfile.framework\libvorbisfile">
             <Link>Frameworks\libvorbisfile.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libvorbisfile.framework">
@@ -606,7 +568,6 @@
     <ItemGroup Condition="Exists('Frameworks\opus.framework')">
         <None Include="Frameworks\opus.framework\opus">
             <Link>Frameworks\opus.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\opus.framework">
@@ -620,7 +581,6 @@
     <ItemGroup Condition="Exists('Frameworks\vo-amrwbenc.framework')">
         <None Include="Frameworks\vo-amrwbenc.framework\vo-amrwbenc">
             <Link>Frameworks\vo-amrwbenc.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\vo-amrwbenc.framework">
@@ -634,7 +594,6 @@
     <ItemGroup Condition="Exists('Frameworks\gmp.framework')">
         <None Include="Frameworks\gmp.framework\gmp">
             <Link>Frameworks\gmp.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\gmp.framework">
@@ -648,7 +607,6 @@
     <ItemGroup Condition="Exists('Frameworks\libnettle.framework')">
         <None Include="Frameworks\libnettle.framework\libnettle">
             <Link>Frameworks\libnettle.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libnettle.framework">
@@ -662,7 +620,6 @@
     <ItemGroup Condition="Exists('Frameworks\libtheora.framework')">
         <None Include="Frameworks\libtheora.framework\libtheora">
             <Link>Frameworks\libtheora.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libtheora.framework">
@@ -676,7 +633,6 @@
     <ItemGroup Condition="Exists('Frameworks\libvpx.framework')">
         <None Include="Frameworks\libvpx.framework\libvpx">
             <Link>Frameworks\libvpx.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libvpx.framework">
@@ -690,7 +646,6 @@
     <ItemGroup Condition="Exists('Frameworks\shine.framework')">
         <None Include="Frameworks\shine.framework\shine">
             <Link>Frameworks\shine.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\shine.framework">
@@ -704,7 +659,6 @@
     <ItemGroup Condition="Exists('Frameworks\wavpack.framework')">
         <None Include="Frameworks\wavpack.framework\wavpack">
             <Link>Frameworks\wavpack.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\wavpack.framework">
@@ -718,7 +672,6 @@
     <ItemGroup Condition="Exists('Frameworks\gnutls.framework')">
         <None Include="Frameworks\gnutls.framework\gnutls">
             <Link>Frameworks\gnutls.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\gnutls.framework">
@@ -732,7 +685,6 @@
     <ItemGroup Condition="Exists('Frameworks\libavdevice.framework')">
         <None Include="Frameworks\libavdevice.framework\libavdevice">
             <Link>Frameworks\libavdevice.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libavdevice.framework">
@@ -746,7 +698,6 @@
     <ItemGroup Condition="Exists('Frameworks\libogg.framework')">
         <None Include="Frameworks\libogg.framework\libogg">
             <Link>Frameworks\libogg.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libogg.framework">
@@ -760,7 +711,6 @@
     <ItemGroup Condition="Exists('Frameworks\libtheoradec.framework')">
         <None Include="Frameworks\libtheoradec.framework\libtheoradec">
             <Link>Frameworks\libtheoradec.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libtheoradec.framework">
@@ -774,7 +724,6 @@
     <ItemGroup Condition="Exists('Frameworks\libwebp.framework')">
         <None Include="Frameworks\libwebp.framework\libwebp">
             <Link>Frameworks\libwebp.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\libwebp.framework">
@@ -788,7 +737,6 @@
     <ItemGroup Condition="Exists('Frameworks\x264.framework')">
         <None Include="Frameworks\x264.framework\x264">
             <Link>Frameworks\x264.framework</Link>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
 
         <NativeReference Include="Frameworks\x264.framework">
