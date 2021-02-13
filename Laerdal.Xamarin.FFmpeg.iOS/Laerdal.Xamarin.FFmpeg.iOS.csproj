@@ -1,5 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
+    <Import Project="GitVersion.targets" />
+
     <!-- VARIABLES -->
     <PropertyGroup>
         <NugetPackageVariantName>Unset</NugetPackageVariantName>
@@ -8,6 +10,7 @@
 
     <!-- IOS -->
     <PropertyGroup>
+        <!--suppress MsbuildTargetFrameworkTagInspection -->
         <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
         <IsBindingProject>true</IsBindingProject>
 
@@ -47,6 +50,8 @@
         <Owners>François Raminosona, Laerdal</Owners>
         <Copyright>François Raminosona, Laerdal</Copyright>
         <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl>
+        <RepositoryBranch>$(GitVersion_BranchName)</RepositoryBranch>
+        <RepositoryCommit>$(GitVersion_Sha)</RepositoryCommit>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryType>git</RepositoryType>
 
