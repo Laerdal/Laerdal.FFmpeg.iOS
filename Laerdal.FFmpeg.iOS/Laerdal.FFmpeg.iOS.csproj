@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 
     <Import Project="GitVersion.targets" />
 
@@ -21,12 +21,12 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <RootNamespace>Laerdal.Xamarin.FFmpeg.iOS</RootNamespace>
+        <RootNamespace>Laerdal.FFmpeg.iOS</RootNamespace>
 
-        <PackageId>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
+        <PackageId>Laerdal.FFmpeg.iOS.$(NugetPackageVariantName)</PackageId>
         <PackageTags>Xamarin;FFmpeg;iOS;$(NugetPackageVariantName)</PackageTags>
         <PackageDescription>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</PackageDescription>
-        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/Laerdal/Laerdal.FFmpeg.iOS</PackageProjectUrl>
         <PackageVersion>1.0.0</PackageVersion>
         <PackageOutputPath>../$(RootNamespace).Output/$(NugetPackageVariantName)</PackageOutputPath>
         <PackageIcon>icon.png</PackageIcon>
@@ -38,15 +38,15 @@
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
 
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
-        <AssemblyName>Laerdal.Xamarin.FFmpeg.iOS</AssemblyName>
+        <AssemblyName>Laerdal.FFmpeg.iOS</AssemblyName>
 
-        <Title>Laerdal.Xamarin.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
+        <Title>Laerdal.FFmpeg.iOS.$(NugetPackageVariantName)</Title>
         <Summary>Xamarin FFmpeg iOS $(NugetPackageVariantName)</Summary>
         <Description>Xamarin wrapper around mobile-ffmpeg for iOS. External libraries: $(ExternalLibraries). Based on https://github.com/tanersener/mobile-ffmpeg</Description>
         <Authors>François Raminosona, Laerdal</Authors>
         <Owners>François Raminosona, Laerdal</Owners>
         <Copyright>François Raminosona, Laerdal</Copyright>
-        <RepositoryUrl>https://github.com/Laerdal/Laerdal.Xamarin.FFmpeg.iOS.git</RepositoryUrl>
+        <RepositoryUrl>https://github.com/Laerdal/Laerdal.FFmpeg.iOS.git</RepositoryUrl>
         <RepositoryBranch>$(GitVersion_BranchName)</RepositoryBranch>
         <RepositoryCommit>$(GitVersion_Sha)</RepositoryCommit>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -744,5 +744,17 @@
             <SmartLink>True</SmartLink>
             <ForceLoad>True</ForceLoad>
         </NativeReference>
+    </ItemGroup>
+
+    <!-- Documentation -->
+    <PropertyGroup>
+        <!-- warning CS1591: Missing XML comment for publicly visible type or member. -->
+        <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);CS1591</MSBuildWarningsAsMessages>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationFile>$(RootNamespace).doc.xml</DocumentationFile>
+        <DocumentationMarkdown>$(RootNamespace).doc.md</DocumentationMarkdown>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Vsxmd" Version="1.4.4" PrivateAssets="all" />
     </ItemGroup>
 </Project>
