@@ -30,8 +30,8 @@ if [ -z "$github_tag_name" ]; then
 fi
 
 # Static configuration
-nuget_project_folder=Laerdal.Xamarin.FFmpeg.iOS
-package_zip_folder=Laerdal.Xamarin.FFmpeg.iOS.Source
+nuget_project_folder=Laerdal.FFmpeg.iOS
+package_zip_folder=Laerdal.FFmpeg.iOS.Source
 
 # Calculated configuration
 sharpie_output_path=$nuget_project_folder/Sharpie_Generated

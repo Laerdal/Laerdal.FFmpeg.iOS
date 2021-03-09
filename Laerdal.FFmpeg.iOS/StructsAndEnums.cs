@@ -1,7 +1,7 @@
 using System;
 using Foundation;
 
-namespace Laerdal.Xamarin.FFmpeg.iOS
+namespace Laerdal.FFmpeg.iOS
 {
     public enum Level : long
     {

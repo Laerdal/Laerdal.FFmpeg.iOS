@@ -348,6 +348,6 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-Laerdal.Xamarin.FFmpeg.iOS/Frameworks/
-Laerdal.Xamarin.FFmpeg.iOS.Output/
-Laerdal.Xamarin.FFmpeg.iOS.Source/
+Laerdal.FFmpeg.iOS/Frameworks/
+Laerdal.FFmpeg.iOS.Output/
+Laerdal.FFmpeg.iOS.Source/

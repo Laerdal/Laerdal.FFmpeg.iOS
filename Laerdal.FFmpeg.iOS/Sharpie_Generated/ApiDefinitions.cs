@@ -3,7 +3,7 @@ using CoreFoundation;
 using Foundation;
 using mobileffmpeg;
 
-namespace Laerdal.Xamarin.FFmpeg.iOS
+namespace Laerdal.FFmpeg.iOS
 {
 	// @interface ArchDetect : NSObject
 	[BaseType (typeof(NSObject))]
